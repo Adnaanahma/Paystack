@@ -51,12 +51,16 @@ namespace Paysatck.API.Controllers
         [HttpGet("verify")]
         public async Task<IActionResult> VerifyPayment([FromQuery] string reference)
         {
-           var isSuccessful = await _paystackService.VerifyPayment(reference);
-           if (isSuccessful) 
+           var response = await _paystackService.VerifyPayment(reference);
+           if (response)
            {
-                return Ok(isSuccessful);
+               return (new
+               {
+                   Status = true,
+                   Message = "Payment verified successful",
+               });
            }
-              else return BadRequest(isSuccessful);  
+           else return BadRequest(response);
         }
     }
 }
