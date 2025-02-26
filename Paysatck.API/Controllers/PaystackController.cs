@@ -54,7 +54,7 @@ namespace Paysatck.API.Controllers
            var response = await _paystackService.VerifyPayment(reference);
            if (response)
            {
-               return (new
+               return Ok(new
                {
                    Status = true,
                    Message = "Payment verified successful",
