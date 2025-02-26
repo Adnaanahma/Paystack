@@ -44,7 +44,7 @@ namespace Paysatck.API.Controllers
             }
         }
         /// <summary>
-        /// "This method verify the payment by refernce"
+        /// "This method verify the payment by reference"
         /// </summary>
         /// <param name="reference"></param>
         /// <returns></returns>
