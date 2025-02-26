@@ -20,7 +20,7 @@ namespace Paystack.Service.Services
         public PaystackService(HttpClient httpClient, IConfiguration configuration)
         {
             _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
-            _secretKey = configuration["Paystack:SecretKey"] ?? throw new ArgumentNullException("Paystack SecretKey is missing in configuration");
+            _secretKey = configuration["SecretKey"] ?? throw new ArgumentNullException("Paystack SecretKey is missing in configuration");
             _httpClient.BaseAddress = new Uri("https://api.paystack.co/");
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _secretKey);
         }
